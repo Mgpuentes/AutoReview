@@ -7,7 +7,7 @@ Users can review different cars that they've owned.
 
 * [Eclipse EE] (http://www.oracle.com/technetwork/java/javaee/overview/index.html) - IDE
 * [Maven](https://maven.apache.org/) - Dependency Management
-*[MongoDb](https://www.mongodb.com/download-center#community) - Database
+* [MongoDb](https://www.mongodb.com/download-center#community) - Database
 
 ## Contributing
 
