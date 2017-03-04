@@ -1,22 +1,25 @@
 package synergist.bootcamp.autoreview.model;
 
+import java.util.UUID;
+
 public class Review {
+    private String id;
 	private Integer carId;
 	private Integer rating;
 	private String review;
 	private String reviewerName;
 	private Integer likes;
 	private Integer dislikes;
-	private Integer id;
 	
-	
-	
+	public Review(){
+		this.id = UUID.randomUUID().toString();
+	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -67,18 +70,71 @@ public class Review {
 	public void setDislikes(Integer dislikes) {
 		this.dislikes = dislikes;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((carId == null) ? 0 : carId.hashCode());
+		result = prime * result + ((dislikes == null) ? 0 : dislikes.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((likes == null) ? 0 : likes.hashCode());
+		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
+		result = prime * result + ((review == null) ? 0 : review.hashCode());
+		result = prime * result + ((reviewerName == null) ? 0 : reviewerName.hashCode());
+		return result;
+	}
 
-	
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Review other = (Review) obj;
+		if (carId == null) {
+			if (other.carId != null)
+				return false;
+		} else if (!carId.equals(other.carId))
+			return false;
+		if (dislikes == null) {
+			if (other.dislikes != null)
+				return false;
+		} else if (!dislikes.equals(other.dislikes))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (likes == null) {
+			if (other.likes != null)
+				return false;
+		} else if (!likes.equals(other.likes))
+			return false;
+		if (rating == null) {
+			if (other.rating != null)
+				return false;
+		} else if (!rating.equals(other.rating))
+			return false;
+		if (review == null) {
+			if (other.review != null)
+				return false;
+		} else if (!review.equals(other.review))
+			return false;
+		if (reviewerName == null) {
+			if (other.reviewerName != null)
+				return false;
+		} else if (!reviewerName.equals(other.reviewerName))
+			return false;
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		return "Review [carId=" + carId + ", rating=" + rating + ", review=" + review + ", reviewerName=" + reviewerName
-				+ ", likes=" + likes + ", dislikes=" + dislikes + ", getCarId()=" + getCarId() + ", getRating()="
-				+ getRating() + ", getReview()=" + getReview() + ", getReviewerName()=" + getReviewerName()
-				+ ", getLikes()=" + getLikes() + ", getDislikes()=" + getDislikes() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", likes=" + likes + ", dislikes=" + dislikes + "]";
 	}
-	
-}
-
-	
+}	

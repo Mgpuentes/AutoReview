@@ -10,41 +10,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewDaoImpl implements ReviewDao {
-    private MongoCollection<Review> reviewCollection;
+	 private MongoCollection<Review> reviewCollection;
 
-    public ReviewDaoImpl(MongoCollection<Review> reviewCollection){
-        this.reviewCollection = reviewCollection;
-    }
+	    public ReviewDaoImpl(MongoCollection<Review> reviewCollection){
+	        this.reviewCollection = reviewCollection;
+	    }
 
-    @Override
-    public Review getReviewById(Integer id) {
-        return reviewCollection.find(new Document("id", id)).first();
-    }
+	    @Override
+	    public Review getReviewById(String id) {
+	        return reviewCollection.find(new Document("id", id)).first();
+	    }
 
-    @Override
-    public List getReviewByCarId(Integer carId, Integer numberPerPage, Integer pageNumber) {
-        MongoCursor mongoCursor = reviewCollection.find(new Document("carId", carId)).sort(new Document("id", -1))
-                .skip(numberPerPage*pageNumber).limit(pageNumber).iterator();
+	    @Override
+	    public List<Review> getReviewsByCarId(Integer carId, Integer numberPerPage, Integer pageNumber) {
+	        MongoCursor<Review> mongoCursor = reviewCollection.find(new Document("carId", carId)).sort(new Document("id", -1))
+	                .skip(numberPerPage*pageNumber).limit(pageNumber).iterator();
 
-        List reviewList = new ArrayList();
-        while(mongoCursor.hasNext()) {
-            reviewList.add(mongoCursor.next());
-        }
+	        List<Review> reviewList = new ArrayList();
+	        while(mongoCursor.hasNext()) {
+	            reviewList.add(mongoCursor.next());
+	        }
 
-        return reviewList;
-    }
+	        return reviewList;
+	    }
 
-    @Override
-    public void addReview(Review review) {
-        reviewCollection.insertOne(review);
-    }
+	    @Override
+	    public void addReview(Review review) {
+	        reviewCollection.insertOne(review);
+	    }
 
-    @Override
-    public void deleteReview(Review review) {
-        reviewCollection.deleteMany(new Document("id", review.getCarId()));
-    }
-
-	
+	    @Override
+	    public void deleteReview(Review review) {
+	        reviewCollection.deleteMany(new Document("id", review.getId()));
+	    }
 
 	
 }

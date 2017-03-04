@@ -7,13 +7,13 @@ import synergist.bootcamp.autoreview.model.Review;
 
 public interface ReviewService {
 	
-	Review getReviewById(Integer id);
+Review getReviewById(String id);
 	
-	List<Review> getReviewByCarId(Integer carId, Integer numberPerPage, Integer pageNumber);
+	List<Review> getReviewsByCarId(Integer carId, Integer numberPerPage, Integer pageNumber);
 	
 	void addReview(Review review);
 	
-	void deleteReview(Review review);
+	void deleteReview(Review reveiw);
 	
 	
 

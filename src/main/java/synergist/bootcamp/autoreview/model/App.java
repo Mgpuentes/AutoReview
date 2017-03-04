@@ -17,9 +17,8 @@ import synergist.bootcamp.autoreview.service.impl.ReviewServiceImpl;
  */
 public class App 
 {
-	private static String COLLECTION_NAME = "carInfo";
-	
-	private static String DB_NAME = "autoreview1";
+	private static String DB_NAME = "shopping1";
+	private static String COLLECTION_NAME = "carInformation";
 	private static final String REVIEW_COLLECTION_NAME = "reviewInfo";
 	
     public static void main( String[] args )
