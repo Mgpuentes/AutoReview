@@ -1,4 +1,4 @@
-# CarSearch
+# AutoReview
 
 This web application eases the stress of purchasing a car. One way this application helps find a suitable car is the review system.
 Users can review different cars that they've owned. 
